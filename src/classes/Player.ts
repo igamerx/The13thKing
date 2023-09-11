@@ -89,13 +89,6 @@ export class Player extends Sprite {
     }
 
     public update() {
-        if (DEBUGGER) {
-            drawEngine.context.strokeStyle = 'Green';
-            drawEngine.context.lineWidth = 1;
-            drawEngine.context.beginPath();
-            drawEngine.context.rect(this.position.x, this.position.y, this.width, this.height);
-            drawEngine.context.stroke();
-        }
 
 
         // this.position.x += this.velocity.x;
@@ -358,8 +351,6 @@ export class Player extends Sprite {
         if (!this.isAlive) return;
 
         this.remainingDashTime = this.dashTime;
-        if (this.remainingDashTime > 0) {
-        }
 
         this.isDash = isDash;
         if (this.playerDirection === 1) {
@@ -415,7 +406,6 @@ export class Player extends Sprite {
                 if (this.isOnGround) {
 
                     this.switchSprite(PLAYER_ANIMATION_NAME.RUN, true);
-                    // this.velocity.x = - this.speed;
                     this.velocity.x -= this.accelerationX;
                 } else {
                     this.velocity.x = - this.speed;
@@ -425,7 +415,6 @@ export class Player extends Sprite {
                 if (this.isOnGround) {
 
                     this.switchSprite(PLAYER_ANIMATION_NAME.RUN, false);
-                    // this.velocity.x = this.speed;
                     this.velocity.x += this.accelerationX;
                 } else {
                     this.velocity.x = + this.speed;

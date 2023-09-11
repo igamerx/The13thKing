@@ -49,8 +49,8 @@ export class GameObject extends Sprite {
                 if (this.animations[i].animationName === name) {
                     if (this.image === this.animations[i].props.image) return;
 
-                    if (this.animations[i].props.frameCount > 4)
-                        this.currentframe = Math.floor(Math.random() * 4); //0;
+                    if (this.animations[i].props.frameCount > 2)
+                        this.currentframe = Math.floor(Math.random() * 2); //0;
                     else this.currentframe = 0;
 
                     this.image = this.animations[i].props.image;

@@ -70,16 +70,6 @@ class Controls {
     this.isEscape = Boolean(this.keyMap.get('Escape') || isButtonPressed(XboxControllerButton.Select));
     this.isJump = Boolean(this.keyMap.get('Space') || isButtonPressed(XboxControllerButton.A));
 
-    // window.addEventListener("gamepadconnected", (e) => {
-    //   alert('xbox')
-    //   console.log(
-    //     "Gamepad connected at index %d: %s. %d buttons, %d axes.",
-    //     e.gamepad.index,
-    //     e.gamepad.id,
-    //     e.gamepad.buttons.length,
-    //     e.gamepad.axes.length,
-    //   );
-    // });
   }
 
   private toggleKey(event: KeyboardEvent, isPressed: boolean) {

@@ -76,7 +76,6 @@ class GameManager {
     public gamePause() {
         const xCenter = drawEngine.context.canvas.width / 2;
 
-        drawEngine.drawText('Game Pause', 18, xCenter, 95, '#ffcc00');
         drawEngine.drawText('Resume', 20, xCenter, 130, this.isStartSelected ? 'white' : 'gray');
         drawEngine.drawText('Toggle Fullscreen', 20, xCenter, 160, this.isStartSelected ? 'gray' : 'white');
         if (Player.ItemCollectedCount && Player.ItemCollectedCount > 0) drawEngine.drawText('Cups: ' + Player.ItemCollectedCount, 18, xCenter, 190,'yellow');
@@ -89,8 +88,8 @@ class GameManager {
 
     public gameFinished() {
         const xCenter = drawEngine.context.canvas.width / 2;
-        drawEngine.drawText('Game Over', 25, xCenter, 130, 'white');
-        drawEngine.drawText('Thank you for Playing.', 25, xCenter, 160, 'white');
+        drawEngine.drawText('Thanks you for Playing', 25, xCenter, 130, '#ffcc00');
+        drawEngine.drawText('Created By: Himanshu Bisht', 25, xCenter, 160, 'white');
     }
 }
 

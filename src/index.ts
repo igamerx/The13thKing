@@ -38,18 +38,21 @@ window.onload = () => {
 
   let playerAnimation: Array<Animations> = [];
   const canvas = document.getElementById('c2d');
-  const fadeDuration = 1000;
+  const fadeDuration = 500;
   playerAnimationData.forEach((data: Animations) => {
     const anim = new Animations(data.animationName, data.props);
     if (anim.animationName === PLAYER_ANIMATION_NAME.DOOR_ENTER) {
       anim.onComplete = () => {
-        // console.log('conplete from index')
-        fadeIn(canvas, fadeDuration, () => { });
-        levelCollection[levelCounter].isCollectibleLoaded = false;
-        levelCounter++;
-        levelCollection[levelCounter].init();
-        player.switchSprite(PLAYER_ANIMATION_NAME.IDLE, false);
-        player.preventInput = false;
+        fadeOut(canvas, fadeDuration, () => {
+          levelCollection[levelCounter].isCollectibleLoaded = false;
+          levelCounter++;
+          levelCollection[levelCounter].init();
+          player.switchSprite(PLAYER_ANIMATION_NAME.IDLE, false);
+          player.preventInput = false;
+          fadeIn(canvas, fadeDuration, () => { 
+  
+          });
+        });
 
       };
     };
@@ -57,21 +60,6 @@ window.onload = () => {
       anim.onComplete = () => {
         player.velocity.x = 0;
         player.velocity.y = 0;
-
-        // zz.zzfx(...[,,925,.04,.3,.6,1,.3,,6.27,-184,.09,.17]); // die sound
-        // fadeOut(canvas, fadeDuration, () => {
-        //   // This callback function is executed after the fade-out effect is complete
-        //   // Your game logic after the fade-out
-        //   console.log('fadeout 1')
-        // });
-        // fadeIn(canvas, fadeDuration, () => {
-        //   // This callback function is executed after the fade-in effect is complete
-        //   // You can start loading your level here
-        //   // Once the level is loaded, call fadeOut to start the fade-out effect
-        //   // loadLevelAndThenFadeOut();
-        //   console.log('fadeIn')
-        // });
-        // overlayShow();
         player.preventInput = false;
         fadeIn(canvas, fadeDuration, () => {
         });
@@ -86,12 +74,6 @@ window.onload = () => {
     playerAnimation.push(anim);
   })
 
-  // function loadLevelAndThenFadeOut() {
-  //   // Load your level logic here
-
-  //   console.log('fade')
-  // }
-
   const player = new Player(collisionBlocks, playerPosition, playerImgSrc, playerAnimation, 3, 5);
 
   let previousTime = 0;
@@ -103,7 +85,7 @@ window.onload = () => {
   let levelData = allLevelData;
   levelData.forEach((data: ILevel) => {
     const level = new LevelGamePlay(data, player);
-    // level.levelCollisionBlocks = collisionsLevel1;
+    level.levelCollisionBlocks = collisionsLevel1;
     levelCollection.push(level);
     // level.playerAndCollectibles();
     // level.playerAndDashPoint();
@@ -121,15 +103,10 @@ window.onload = () => {
       camera.update();
       camera.render();
 
-      // camera.update();
-      // camera.render(levelCollection[levelCounter]);
-      // levelCollection[levelCounter].levelGenerator.draw();
-
-
       levelCollection[levelCounter].loadGameLevel();
       levelCollection[levelCounter].update();
       
-      if (levelCounter == 6) {
+      if (levelCounter == 9) {
         player.velocity.y -= 1;
         gameManager.gameFinished();
       } else {
@@ -138,6 +115,20 @@ window.onload = () => {
 
 
       window.deltaTime = delta;
+
+
+
+      // backGroundLevel1.draw();
+      // door.draw();
+      // door.update();
+
+      // collisionBlocks.forEach((block: CollisionBlock) => {
+      //   block.draw();
+      // })
+      // player.draw();
+      // player.update();
+
+      // overlay();
 
     }
 

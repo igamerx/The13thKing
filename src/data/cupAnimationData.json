@@ -11,10 +11,10 @@
     {
       "animationName": "cup_effect",
       "props": {
-        "frameCount": 4,
-        "frameBuffer": 18,
+        "frameCount": 1,
+        "frameBuffer": 50,
         "loop": false,
-        "src": "img/objects/cup_collect.png"
+        "src": "img/objects/cup.png"
       }
     }
   ]

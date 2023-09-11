@@ -9,6 +9,8 @@ import { DashPoint } from "@/classes/DashPoint";
 import { Enemy } from "@/classes/Enemy";
 
 export class LevelGamePlay extends Level {
+    protected dashTime = 8;
+    protected remainingDashTime = 0;
 
     constructor(level: ILevel, playerObj: Player) {
         super(level, playerObj);
@@ -18,6 +20,12 @@ export class LevelGamePlay extends Level {
         this.playerAndCollectibles();
         this.playerAndDashPoint();
         this.playerAndEnemy();
+
+        if (this.remainingDashTime > 0) {
+            this.remainingDashTime--;
+        } else {
+            DashPoint.isDashPointCollided = false;
+        }
     }
 
     public playerAndCollectibles() {
@@ -79,11 +87,12 @@ export class LevelGamePlay extends Level {
 
                     this.player.dashMove(true);
 
+                    this.remainingDashTime = this.dashTime;
                     if (this.dashPoint[indexOfObject].animations) {
                         this.dashPoint[indexOfObject].animations?.forEach((data: Animations) => {
                             if (data.animationName === OBJECT_ANIMATION_NAME.DASH_POINT_CRACKED) {
                                 data.onComplete = () => {
-                                    DashPoint.isDashPointCollided = false;
+                                    // DashPoint.isDashPointCollided = false;
                                 };
                             };
                         });

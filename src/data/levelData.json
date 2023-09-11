@@ -29,7 +29,7 @@
         "collectibales": [
             {
                 "positionX": 330,
-                "positionY": 224,
+                "positionY": 223,
                 "src": "img/objects/cup.png",
                 "animations": [],
                 "isActive": true
