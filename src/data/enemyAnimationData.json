@@ -1,0 +1,21 @@
+[
+    {
+      "animationName": "enemy_idle",
+      "props": {
+        "frameCount": 5,
+        "frameBuffer": 9,
+        "loop": true,
+        "src": "img/objects/enemy.png"
+      }
+    },
+    {
+      "animationName": "enemy_attack",
+      "props": {
+        "frameCount": 8,
+        "frameBuffer": 2,
+        "loop": false,
+        "src": "img/objects/dash_point_explode.png"
+      }
+    }
+    
+  ]
