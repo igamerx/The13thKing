@@ -1,10 +1,10 @@
 class AudioFx {
     public volume: number = 0.5;
     public sampleRate: number = 44100;
-    public x: AudioContext = new AudioContext();
-
+    public x: AudioContext;
+    
     constructor() {
-
+        this.x = new AudioContext();
     }
 
     // muteFx() {

@@ -14,7 +14,7 @@
         "frameCount": 1,
         "frameBuffer": 25,
         "loop": false,
-        "src": "img/objects/dash_point_explode.png"
+        "src": "img/objects/dash_point.png"
       }
     }
     

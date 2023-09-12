@@ -91,8 +91,6 @@ window.onload = () => {
     // level.playerAndDashPoint();
   });
 
-  let isPaused = false;
-
   (function gameLoop(currentTime: number) {
     const delta = currentTime - previousTime;
 
@@ -106,7 +104,7 @@ window.onload = () => {
       levelCollection[levelCounter].loadGameLevel();
       levelCollection[levelCounter].update();
       
-      if (levelCounter == 9) {
+      if (levelCounter == 6) {
         player.velocity.y -= 1;
         gameManager.gameFinished();
       } else {

@@ -7,6 +7,7 @@ class GameManager {
     private isStartSelected = true;
     private isGameStarts = false;
     private isPause = false;
+    
     constructor() {
 
     }
@@ -32,11 +33,6 @@ class GameManager {
                 //TODO: GAME PLAY GOSE HERE.
                 this.isPause = false;
                 player.inputOff = false;
-
-                // return true;
-                // drawEngine.context.imageSmoothingEnabled = false;
-                // drawEngine.context.canvas.width = CANVAS_WIDTH;
-                // drawEngine.context.canvas.height = CANVAS_HEIGHT;
             }
         }
     }
@@ -68,7 +64,6 @@ class GameManager {
         const xCenter = drawEngine.context.canvas.width / 2;
 
         drawEngine.drawText(`The 13th King's Odyssey`, 25, xCenter, 100, '#ffcc00');
-        // drawEngine.drawText('Menu', 18, xCenter, 95, 'yellow');
         drawEngine.drawText('Start Game', 22, xCenter, 135, this.isStartSelected ? 'white' : 'gray');
         drawEngine.drawText('Toggle Fullscreen', 22, xCenter, 167, this.isStartSelected ? 'gray' : 'white');
     }
